@@ -13,7 +13,7 @@ namespace escortagram.Common
         {
             var NewFolder = Convert.ToInt32(HttpContext.Current.Session["UserID"]);
             
-            string savePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"\\Upload\\ModelImages\\" + NewFolder + "\\"));
+            string savePath = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"\\Upload\\ModelImages\\"));
             if(Type=="OtherPics")
             {
                 //int fileCount = Directory.GetFiles(savePath).Length;

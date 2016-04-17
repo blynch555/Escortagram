@@ -12,7 +12,7 @@ namespace escortagram.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employment :ModelRate
+    public partial class Employment : ModelRate
     {
         public int EmployeID { get; set; }
         public Nullable<int> UserID { get; set; }
@@ -44,5 +44,6 @@ namespace escortagram.Models
         public string Email { get; set; }
         public string PasswordSalt { get; set; }
         public string PasswordHash { get; set; }
+        public Nullable<int> UserTypeID { get; set; }
     }
 }

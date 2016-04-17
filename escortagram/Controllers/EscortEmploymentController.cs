@@ -7,7 +7,7 @@ using escortagram.Models;
 using escortagram.Common;
 namespace escortagram.Controllers
 {
-
+    
     public class EscortEmploymentController : Controller
     {
         EscortagramEntities db = new EscortagramEntities();

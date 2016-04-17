@@ -10,6 +10,7 @@ using GridMvc.Html;
 
 namespace escortagram.Controllers
 {
+    
     public class HomeController : Controller
     {
         EscortagramEntities db = new EscortagramEntities();

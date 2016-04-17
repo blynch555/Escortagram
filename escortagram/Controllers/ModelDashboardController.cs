@@ -10,6 +10,7 @@ using System.IO;
 using System.Drawing;
 namespace escortagram.Controllers
 {
+    
     public class ModelDashboardController : Controller
     {
         // GET: ModalDashboard
@@ -19,7 +20,9 @@ namespace escortagram.Controllers
         {
             int Uid = Convert.ToInt32(Session["UserID"]);
 
-           var md = (from a in db.UserMasters join n in db.CountryTbs on a.Nationality equals n.CountryID where a.UserID == Uid 
+            var md = (from a in db.Employments
+                      join n in db.CountryTbs on a.Nationality == null ? 239 : a.Nationality equals n.CountryID 
+                      where a.EmployeID == Uid 
                      select new  
                      {  a, n.CountryName }).FirstOrDefault();
             var Country = (from a in db.CountryTbs
@@ -59,7 +62,15 @@ namespace escortagram.Controllers
                 }
                 User.MobileNo = md.a.MobileNo;
                 User.Nationality = md.CountryName;
-                User.Nationalityupdate = (int)md.a.Nationality;
+                if (md.a.Nationality==null)
+                {
+                    User.Nationalityupdate = 239;
+                }
+                else 
+                {
+                    User.Nationalityupdate = (int)md.a.Nationality;
+                }
+                //User.Nationalityupdate = (int)md.a.Nationality;
                 User.Languages = md.a.Languages;
                 User.Measurements = md.a.Measurements;
                 User.DressSize = md.a.DressSize;
@@ -97,6 +108,7 @@ namespace escortagram.Controllers
                         {
                             User.BannerImage = item.a.OtherImages;
                         }
+                       
                     }
                     
                     images o = new images();
@@ -118,7 +130,7 @@ namespace escortagram.Controllers
 
             int Uid = Convert.ToInt32(Session["UserID"]);
             //Mapper.creat<UserMaster, UserMaster>();
-            Employment md = (from a in db.Employments where a.UserID == Uid select a).FirstOrDefault();
+            Employment md = (from a in db.Employments where a.EmployeID == Uid select a).FirstOrDefault();
             if (md != null)
             {
                 md.Age = User.Age;
@@ -159,9 +171,10 @@ namespace escortagram.Controllers
         public ActionResult deopzone(HttpPostedFileBase[] file)
         {
             int Uid = Convert.ToInt32(Session["UserID"]);
-
+            var count = 0;
             foreach (var item in file)
             {
+                count ++;
                 string Type = "OtherPics";
                 ModelImage imageobj = new ModelImage();
                 string guid = Guid.NewGuid().ToString();
@@ -170,7 +183,10 @@ namespace escortagram.Controllers
                 cmn.SaveFile(item, guid, Type);
                 imageobj.ModelID = Uid;
                 imageobj.OtherImages = guid;
-                
+                if(count==1)
+                {
+                    imageobj.BannerImageGuid = true;
+                }
                 db.ModelImages.Add(imageobj);
                 db.SaveChanges();
             }
@@ -202,7 +218,7 @@ namespace escortagram.Controllers
             {
                 int Uid = Convert.ToInt32(Session["UserID"]);
 
-                var ProfilePic = (from a in db.UserMasters where a.UserID == Uid select a).FirstOrDefault();
+                var ProfilePic = (from a in db.Employments where a.EmployeID == Uid select a).FirstOrDefault();
                 string guid = "";
 
                 if (ProfilePic != null && ProfilePic.LogoGuid == null || ProfilePic.LogoGuid == "")

@@ -8,7 +8,7 @@
     var Logo = "";
     if (Model.BannerImage != null)
     {
-        bannerImage = "/Upload/ModelImages/" + UID + "/" + Model.BannerImage + ".jpg";
+        bannerImage = "/Upload/ModelImages/" + Model.BannerImage + ".jpg";
     }
     else
     {
@@ -16,7 +16,7 @@
     }
     if (Model.LogoGuid != null)
     {
-        Logo = "/Upload/ModelImages/" + UID + "/" + Model.LogoGuid + ".jpg";
+        Logo = "/Upload/ModelImages/" + Model.LogoGuid + ".jpg";
     }
 }
 <style>
@@ -149,7 +149,7 @@
                                             foreach (var item in Model.ImagesList)
                                             {
 
-                                                var OtherImages = "/Upload/ModelImages/" + UID + "/" + item.OtherImages + ".jpg";
+                                                var OtherImages = "/Upload/ModelImages/" + item.OtherImages + ".jpg";
                                                 if (count <= 1)
                                                 {
 

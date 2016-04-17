@@ -86,6 +86,7 @@
             <PropertyRef Name="EmployeID" />
           </Key>
           <Property Name="EmployeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeID" Type="int" />
           <Property Name="UserID" Type="int" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
@@ -628,6 +629,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserTypeID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -825,6 +827,7 @@
           <EntitySetMapping Name="Employments">
             <EntityTypeMapping TypeName="EscortModel.Employment">
               <MappingFragment StoreEntitySet="Employment">
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
                 <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

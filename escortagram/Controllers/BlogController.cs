@@ -17,5 +17,13 @@ namespace escortagram.Controllers
         {
             return View();
         }
+        public ActionResult BlogLogin()
+        {
+            return View();
+        }
+        public ActionResult AddBlog() 
+        {
+            return View();
+        }
     }
 }

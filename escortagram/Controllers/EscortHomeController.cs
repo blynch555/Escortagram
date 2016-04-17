@@ -14,7 +14,7 @@ namespace escortagram.Controllers
         // GET: EscortHome
         public ActionResult Index()
         {
-            var HomeData= (from a in db.UserMasters join b in db.ModelImages on a.UserID equals b.ModelID where a.UserType != 1 && b.BannerImageGuid==true
+            var HomeData= (from a in db.Employments join b in db.ModelImages on a.EmployeID equals b.ModelID where a.UserTypeID != 1 && b.BannerImageGuid==true
                            
                            select new 
                            {
@@ -29,7 +29,7 @@ namespace escortagram.Controllers
             {
                 Escortsview Dummy = new Escortsview();
                 Dummy.FirstName = item.a.FirstName;
-                Dummy.UserID = item.a.UserID;
+                Dummy.UserID = item.a.EmployeID;
                 Dummy.BannerImageGuid = "/Upload/ModelImages/"+ item.a.UserID +"/" + item.OtherImages + ".jpg";
                 
                 NewList.Add(Dummy);

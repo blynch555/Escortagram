@@ -32,7 +32,7 @@ namespace escortagram.Controllers
                 string password = users.Passwords;
 
                 // var str = dbContext.spGetUserLogin(username, password).ToList();
-                var validlogin = (from a in db.UserMasters where a.Email == username select a).FirstOrDefault();
+                var validlogin = (from a in db.Employments where a.Email == username select a).FirstOrDefault();
 
                 if (validlogin != null)
                 {
@@ -42,14 +42,14 @@ namespace escortagram.Controllers
 
                     if (ENCDEC.ComputeHash(password, "MD5", saltBytes) == validlogin.PasswordHash)
                     {
-                        Session["UserID"] = validlogin.UserID;
+                        Session["UserID"] = validlogin.EmployeID;
                         Session["FirstName"] = validlogin.FirstName;
-                        Session["UserType"] = validlogin.UserType;
-                        if (validlogin.UserType == 1)
+                        Session["UserType"] = validlogin.UserTypeID;
+                        if (validlogin.UserTypeID == 1)
                         {
                             return RedirectToAction("Index", "Home");
                         }
-                        else if (validlogin.UserType == 2)
+                        else if (validlogin.UserTypeID == 2)
                         {
                             return RedirectToAction("Profile", "ModelDashboard");
                         }
@@ -92,7 +92,8 @@ namespace escortagram.Controllers
            
             obj.Email = Users.Email;
             obj.CreatedDate = DateTime.Now;
-            obj.Active = true;           
+            obj.Active = true;
+            obj.UserTypeID = 2;
             byte[] salt = new byte [8];
             var rng = new RNGCryptoServiceProvider();
             rng.GetBytes(salt);
@@ -101,7 +102,15 @@ namespace escortagram.Controllers
             obj.PasswordHash=HASH;
             db.Employments.Add(obj);
             db.SaveChanges();
-            return RedirectToAction("Index","Home");
+            var validlogin = (from a in db.Employments where a.Email == Users.Email select a).FirstOrDefault();
+            Session["UserID"] = validlogin.EmployeID;
+            Session["FirstName"] = validlogin.FirstName;
+            Session["UserType"] = validlogin.UserTypeID;
+            ModelRate rate = new ModelRate();
+            rate.ModelID = validlogin.EmployeID;
+            db.ModelRates.Add(rate);
+            db.SaveChanges();
+            return RedirectToAction("Index","EscortEmployment");
         }
     }
 }
