@@ -1,0 +1,490 @@
+﻿@model escortagram.Models.Employment
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutFrontend.cshtml";
+}
+
+<div class="content-fluid block_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="booking_block">
+                    <div class="details_11">
+                        <h1>Cleopatra London Escorts – Employment</h1>
+                    </div>
+                    <p>Are you an escort and want to be part of our high class environment? We are an trustworthy and honest London Escort Agency. We don’t use fake photos to promote our escorts and we are always honest with our clients in regards to escorts services and descriptions.</p>
+                    <p>Please take a moment to fill out the form and attach some pictures of yourself. All enquiries are treated as highly confidential.</p>
+                    <p>If you have issues filling our employment form you can email us <span><a href="">admin@cleopatraescorts.co.uk</a></span></p>
+                    @Html.BeginForm("Save", "EscortEmployment", FormMethod.Post, new { @id = "formEmp", enctype = "multipart/form-data" })
+                    {
+                        <div class="booking_block_1">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                          @Html.HiddenFor(m => m.services, new {@id="services" })
+                                <div class="form-group">
+                                    <label for="inputdefault">Name</label>
+                                    @Html.TextBoxFor(m => m.FirstName, new {@class="from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <p><label for="inputlg">Nationality </label></p>
+                                    @Html.DropDownListFor(m => m.Nationality, (IEnumerable<SelectListItem>)ViewBag.CountryDrp, "--Select new Country--", new { @class = "form-control" })
+                                  
+                                        @*<select class="form-control">
+                                            <option class="form-control" value="--- Select Nationality ---">--- Select Nationality ---</option>
+                                            <option value="Afghan">Afghan</option>
+                                            <option value="Albanian">Albanian</option>
+                                            <option value="Algerian">Algerian</option>
+                                            <option value="Armenian">Armenian</option>
+                                            <option value="Australian">Australian</option>
+                                            <option value="Austrian">Austrian</option>
+                                            <option value="Azerbaijani">Azerbaijani</option>
+                                            <option value="Bahamian">Bahamian</option>
+                                            <option value="Bahraini">Bahraini</option>
+                                            <option value="Bangladeshi">Bangladeshi</option>
+                                            <option value="Barbadian">Barbadian</option>
+                                            <option value="Belarusian">Belarusian</option>
+                                            <option value="Belgian">Belgian</option>
+                                            <option value="Belizean">Belizean</option>
+                                            <option value="Beninese">Beninese</option>
+                                            <option value="Bhutanese">Bhutanese</option>
+                                            <option value="Bolivian">Bolivian</option>
+                                            <option value="Bosnian">Bosnian</option>
+                                            <option value="Brazilian">Brazilian</option>
+                                            <option value="British">British</option>
+                                            <option value="Bruneian">Bruneian</option>
+                                            <option value="Bulgarian">Bulgarian</option>
+                                            <option value="Burkinabe">Burkinabe</option>
+                                            <option value="Burmese">Burmese</option>
+                                            <option value="Burundian">Burundian</option>
+                                            <option value="Cambodian">Cambodian</option>
+                                            <option value="Cameroonian">Cameroonian</option>
+                                            <option value="Canadian">Canadian</option>
+                                            <option value="Cape Verdian">Cape Verdian</option>
+                                            <option value="Central African">Central African</option>
+                                            <option value="Chadian">Chadian</option>
+                                            <option value="Cameroonian">Cameroonian</option>
+                                            <option value="Chilean">Chilean</option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="Colombian">Colombian</option>
+                                            <option value="Comoran">Comoran</option>
+                                            <option value="Congolese">Congolese</option>
+                                            <option value="Costa Rican">Costa Rican</option>
+                                            <option value="Croat">Croat</option>
+                                            <option value="Cuban">Cuban</option>
+                                            <option value="Cypriot">Cypriot</option>
+                                            <option value="Czech">Czech</option>
+                                            <option value="Dane">Dane</option>
+                                            <option value="Djibouti">Djibouti</option>
+                                        </select>*@
+</div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Age </label>
+                                    @Html.TextBoxFor(m => m.Age, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Height in centimetres</label>
+                                    @Html.TextBoxFor(m => m.Height, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <p><label for="inputlg">Dress size</label></p>
+                                    @Html.DropDownListFor(m=>m.DressSize, new List<SelectListItem>
+{
+    new SelectListItem{ Text="Option 1", Value = "1" },
+    new SelectListItem{ Text="Option 2", Value = "2" },
+    new SelectListItem{ Text="Option 3", Value = "3" },
+ },new{@class="form-control"})
+                                    
+                                    @*<select class="form-control">
+                                        <option class="form-control" value="--- Select Nationality ---">--- Select Nationality ---</option>
+                                        <option value="Afghan">Afghan</option>
+                                        <option value="Albanian">Albanian</option>
+                                        <option value="Algerian">Algerian</option>
+                                        <option value="Armenian">Armenian</option>
+                                        <option value="Australian">Australian</option>
+                                        <option value="Austrian">Austrian</option>
+                                        <option value="Azerbaijani">Azerbaijani</option>
+                                        <option value="Bahamian">Bahamian</option>
+                                        <option value="Bahraini">Bahraini</option>
+                                        <option value="Bangladeshi">Bangladeshi</option>
+                                        <option value="Barbadian">Barbadian</option>
+                                        <option value="Belarusian">Belarusian</option>
+                                        <option value="Belgian">Belgian</option>
+                                        <option value="Belizean">Belizean</option>
+                                        <option value="Beninese">Beninese</option>
+                                        <option value="Bhutanese">Bhutanese</option>
+                                        <option value="Bolivian">Bolivian</option>
+                                        <option value="Bosnian">Bosnian</option>
+                                        <option value="Brazilian">Brazilian</option>
+                                        <option value="British">British</option>
+                                        <option value="Bruneian">Bruneian</option>
+                                        <option value="Bulgarian">Bulgarian</option>
+                                        <option value="Burkinabe">Burkinabe</option>
+                                        <option value="Burmese">Burmese</option>
+                                        <option value="Burundian">Burundian</option>
+                                        <option value="Cambodian">Cambodian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Canadian">Canadian</option>
+                                        <option value="Cape Verdian">Cape Verdian</option>
+                                        <option value="Central African">Central African</option>
+                                        <option value="Chadian">Chadian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Chilean">Chilean</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Colombian">Colombian</option>
+                                        <option value="Comoran">Comoran</option>
+                                        <option value="Congolese">Congolese</option>
+                                        <option value="Costa Rican">Costa Rican</option>
+                                        <option value="Croat">Croat</option>
+                                        <option value="Cuban">Cuban</option>
+                                        <option value="Cypriot">Cypriot</option>
+                                        <option value="Czech">Czech</option>
+                                        <option value="Dane">Dane</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                    </select>*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Measurements(eg. 34C-24-34) </label>
+                                    @Html.TextBoxFor(m => m.Measurements, new { @class = "from-control", @placeholder = "34C-24-34" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Hair Colour</label>
+                                    @Html.TextBoxFor(m => m.HairColor, new { @class = "from-control"})
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <p><label for="inputlg">Eye colour </label></p>
+                                    @Html.DropDownListFor(m => m.EyeColor, new List<SelectListItem>
+{
+    new SelectListItem{ Text="Option 1", Value = "1" },
+    new SelectListItem{ Text="Option 2", Value = "2" },
+    new SelectListItem{ Text="Option 3", Value = "3" },
+ }, new { @class="form-control"})
+                                    @*<select class="form-control">
+                                        <option class="form-control" value="--- Select Nationality ---">--- Select Nationality ---</option>
+                                        <option value="Afghan">Afghan</option>
+                                        <option value="Albanian">Albanian</option>
+                                        <option value="Algerian">Algerian</option>
+                                        <option value="Armenian">Armenian</option>
+                                        <option value="Australian">Australian</option>
+                                        <option value="Austrian">Austrian</option>
+                                        <option value="Azerbaijani">Azerbaijani</option>
+                                        <option value="Bahamian">Bahamian</option>
+                                        <option value="Bahraini">Bahraini</option>
+                                        <option value="Bangladeshi">Bangladeshi</option>
+                                        <option value="Barbadian">Barbadian</option>
+                                        <option value="Belarusian">Belarusian</option>
+                                        <option value="Belgian">Belgian</option>
+                                        <option value="Belizean">Belizean</option>
+                                        <option value="Beninese">Beninese</option>
+                                        <option value="Bhutanese">Bhutanese</option>
+                                        <option value="Bolivian">Bolivian</option>
+                                        <option value="Bosnian">Bosnian</option>
+                                        <option value="Brazilian">Brazilian</option>
+                                        <option value="British">British</option>
+                                        <option value="Bruneian">Bruneian</option>
+                                        <option value="Bulgarian">Bulgarian</option>
+                                        <option value="Burkinabe">Burkinabe</option>
+                                        <option value="Burmese">Burmese</option>
+                                        <option value="Burundian">Burundian</option>
+                                        <option value="Cambodian">Cambodian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Canadian">Canadian</option>
+                                        <option value="Cape Verdian">Cape Verdian</option>
+                                        <option value="Central African">Central African</option>
+                                        <option value="Chadian">Chadian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Chilean">Chilean</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Colombian">Colombian</option>
+                                        <option value="Comoran">Comoran</option>
+                                        <option value="Congolese">Congolese</option>
+                                        <option value="Costa Rican">Costa Rican</option>
+                                        <option value="Croat">Croat</option>
+                                        <option value="Cuban">Cuban</option>
+                                        <option value="Cypriot">Cypriot</option>
+                                        <option value="Czech">Czech</option>
+                                        <option value="Dane">Dane</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                    </select>*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Languages that you speak</label>
+                                    @Html.TextBoxFor(m => m.Languages, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <p><label for="inputlg">Orientation</label></p>
+                                    @Html.DropDownListFor(m => m.Orientation, new List<SelectListItem>
+{
+    new SelectListItem{ Text="Option 1", Value = "1" },
+    new SelectListItem{ Text="Option 2", Value = "2" },
+    new SelectListItem{ Text="Option 3", Value = "3" },
+ }, new { @class = "form-control" })
+                                    @*<select class="form-control">
+                                        <option class="form-control" value="--- Select Nationality ---">--- Select Nationality ---</option>
+                                        <option value="Afghan">Afghan</option>
+                                        <option value="Albanian">Albanian</option>
+                                        <option value="Algerian">Algerian</option>
+                                        <option value="Armenian">Armenian</option>
+                                        <option value="Australian">Australian</option>
+                                        <option value="Austrian">Austrian</option>
+                                        <option value="Azerbaijani">Azerbaijani</option>
+                                        <option value="Bahamian">Bahamian</option>
+                                        <option value="Bahraini">Bahraini</option>
+                                        <option value="Bangladeshi">Bangladeshi</option>
+                                        <option value="Barbadian">Barbadian</option>
+                                        <option value="Belarusian">Belarusian</option>
+                                        <option value="Belgian">Belgian</option>
+                                        <option value="Belizean">Belizean</option>
+                                        <option value="Beninese">Beninese</option>
+                                        <option value="Bhutanese">Bhutanese</option>
+                                        <option value="Bolivian">Bolivian</option>
+                                        <option value="Bosnian">Bosnian</option>
+                                        <option value="Brazilian">Brazilian</option>
+                                        <option value="British">British</option>
+                                        <option value="Bruneian">Bruneian</option>
+                                        <option value="Bulgarian">Bulgarian</option>
+                                        <option value="Burkinabe">Burkinabe</option>
+                                        <option value="Burmese">Burmese</option>
+                                        <option value="Burundian">Burundian</option>
+                                        <option value="Cambodian">Cambodian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Canadian">Canadian</option>
+                                        <option value="Cape Verdian">Cape Verdian</option>
+                                        <option value="Central African">Central African</option>
+                                        <option value="Chadian">Chadian</option>
+                                        <option value="Cameroonian">Cameroonian</option>
+                                        <option value="Chilean">Chilean</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="Colombian">Colombian</option>
+                                        <option value="Comoran">Comoran</option>
+                                        <option value="Congolese">Congolese</option>
+                                        <option value="Costa Rican">Costa Rican</option>
+                                        <option value="Croat">Croat</option>
+                                        <option value="Cuban">Cuban</option>
+                                        <option value="Cypriot">Cypriot</option>
+                                        <option value="Czech">Czech</option>
+                                        <option value="Dane">Dane</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                    </select>*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Favourite Perfume</label>
+                                    @Html.TextBoxFor(m => m.FavouritePerfume, new { @class = "from-control", @placeholder = "34C-24-34" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Favourite Cuisine </label>
+                                    @Html.TextBoxFor(m => m.FavouriteCuisine, new { @class = "from-control", @placeholder = "34C-24-34" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Services</label>
+                                    <div class="">
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="1" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">69</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="2" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">A-Level</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="3" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">CIF</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="4" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">CIM</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="5" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">COB</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="6" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Couples</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="7" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Deep Throat</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="8" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">DFK</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="9" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Domination</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="10" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Duo Escorts</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="11" name="vfb-40[]">
+                                            <label class="vfb-choice" for="vfb-40-0">Fetish</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="12" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">FK</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="13" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">GFE</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="14" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">OWO</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="15" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Role Plays</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="16" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Rimming ( receiving)</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="17" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">Spanking (giving)</label>
+                                        </span>
+                                        <span class="vfb-span">
+                                            <input id="vfb-40-0" class="vfb-checkbox required " type="checkbox" value="18" name="vfb">
+                                            <label class="vfb-choice" for="vfb-40-0">SM/BDSM ( giving)</label>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">UK travel </label>
+                                    @Html.TextBoxFor(m => m.UKtravel, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputdefault">Address for incalls including apartment number and postcode(if you do incalls)</label>
+                                    <input class="form-control" id="inputdefault" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">30 minutes price </label>
+                                    @Html.TextBoxFor(m => m.Rate30min, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Incall price (per hour) </label>
+                                    @Html.TextBoxFor(m => m.Incallperhour, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Outcall price (per hour)  </label>
+                                    @Html.TextBoxFor(m => m.Outcallperhour, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Incall 90 minutes price </label>
+                                    @Html.TextBoxFor(m => m.Incall90Minutes, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Outcall 90 minutes price  </label>
+                                    @Html.TextBoxFor(m => m.Outcall90minutes, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Additional hour price</label>
+                                    @Html.TextBoxFor(m => m.AdditionalHours, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Dinner date price   </label>
+                                    @Html.TextBoxFor(m => m.DinnerRate, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Overnight price </label>
+                                    @Html.TextBoxFor(m => m.OverNight, new { @class = "from-control" })
+                                    @*<input class="form-control" id="inputdefault" type="text">*@
+                                </div>
+                           
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <p><label class="booking_detal" for="sel3">Type of meeting</label></p>
+                            
+                            @*<form>
+                                <p><label class="booking_detal" for="sel3">Type of meeting</label></p>
+                                <input type="checkbox" name="gender" value="male"><span class="booking_detal"> Incall</span><br>
+                                <input type="checkbox" name="gender" value="female"><span class="booking_detal"> Outcall ( Private Residence )</span><br>
+                                <input type="checkbox" name="gender" value="other"><span class="booking_detal"> Outcall ( Hotel )</span>
+                            </form>*@
+                            <p><label class="booking_detal" for="sel3">Meeting Point Address (please include room number if meeting..) </label></p>
+                           @Html.TextAreaFor(m => m.MeetingAddress, new { @class = "form-control text_area" })
+                             @*<textarea class="form-control text_area"></textarea>*@
+                            <p><label class="booking_detal" for="sel3">Special requests or comments? </label></p>
+                         @Html.TextAreaFor(m => m.Comments, new { @class = "form-control text_area" })
+                               @*<textarea class="form-control text_area"></textarea>*@
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="booking_browse">
+                                <ul>
+                                    <li id="item-vfb-81" class="vfb-item vfb-item-file-upload ">
+                                        <label class="vfb-desc" for="vfb-81">Profile Pic</label>
+                                        <input id="vfb-81" type="file" value="" name="file">
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                           
+                        </div>
+                            <input onclick="return getCheckboxvalue();" type="submit" value="save" />
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="booking_block_11">
+                    <div class="details_11">
+                        <h1>Verification</h1>
+                    </div>
+                    @*<div class="booking_block_1">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="inputdefault">Please enter any two digits </label>
+                                    <input class="form-control" id="inputdefault" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <p><label class="booking_detal" for="inputlg">Example: 12</label></p>
+                                    <input class="booking_submit" type="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function getCheckboxvalue()
+    {
+        var yourArray = "";
+        $("input:checkbox[name=vfb]:checked").each(function () {
+
+            // yourArray.push($(this).val());
+            if (yourArray != "") {
+                yourArray += ',' + $(this).val();
+            } else {
+                yourArray =  $(this).val();
+            }
+            
+            alert(yourArray);
+        });
+       
+        $("#services").val(JSON.stringify(yourArray))
+    }
+</script>
